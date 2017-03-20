@@ -1,0 +1,17 @@
+<h:panelGroup xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	
+	<h2>Login</h2>
+	<h:form>
+		<fieldset>
+			<label for="email">E-Mail</label> 
+			<h:inputText id="email" value="#{userLoginController.userData.email}"></h:inputText>
+			<label for="password">Password</label> 
+			<h:inputSecret id="password" value="#{userLoginController.userData.password}"></h:inputSecret>
+ 			<h:commandButton styleClass="button-primary" action="#{userLoginController.login()}" value="Login"></h:commandButton>
+		</fieldset>
+	</h:form>
+
+</h:panelGroup>

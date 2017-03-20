@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<head>
+	<title>Note App</title>
+	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic" />
+	<link rel="stylesheet" href="//cdn.rawgit.com/necolas/normalize.css/master/normalize.css" />
+	<link rel="stylesheet" href="//cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css" />
+</head>
+
+<body>
+	<div class="container" style="margin-top: 20px;">
+		<h:panelGroup rendered="#{!userSessionBean.isLoggedIn()}">
+			<ui:include src="../login-form.xhtml" />
+		</h:panelGroup>
+		
+		<h:panelGroup rendered="#{userSessionBean.isLoggedIn()}">
+			<h:form class="float-right">
+				<h:commandButton action="#{userLoginController.logout()}" value="Logout"></h:commandButton>
+			</h:form>
+			<ui:insert name="body" />
+		</h:panelGroup>
+	
+	</div>
+</body>
+
+</html>

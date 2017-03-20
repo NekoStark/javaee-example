@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="layout/template.xhtml">
+	<ui:define name="body">
+		<h2>View Note</h2>
+		
+		<h3>#{noteViewController.note.title}</h3>
+		
+		<p style="white-space:pre-wrap">#{noteViewController.note.body}</p>
+		
+		<h5>
+			<h:outputText value="created at: " />
+			<h:outputText value="#{noteViewController.note.creationDate}">
+				<f:convertDateTime pattern="dd/MM/yyyy HH:mm" />
+			</h:outputText>
+		</h5>
+		
+		<h:link styleClass="button button-outline" outcome="home" value="Back"></h:link>
+		<h:link styleClass="button" outcome="note-edit" value="Edit" style="margin-left: 5px;">
+			<f:param name="id" value="#{noteViewController.note.id}"></f:param>
+		</h:link>
+	</ui:define>
+</ui:composition>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="layout/template.xhtml">
+	<ui:define name="body">
+		<h2>Your Notes</h2>
+		
+		<table>
+			<thead>
+				<tr>
+					<th>Title</th>
+					<th>Creation Date</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<ui:repeat var="note" value="#{noteListController.notes}">
+					<tr>
+						<td>#{note.title}</td>
+						<td>
+							<h:outputText value="#{note.creationDate}">
+								<f:convertDateTime pattern="dd/MM/yyyy HH:mm" />
+							</h:outputText>
+						</td>
+						<td>
+							<h:link styleClass="button button-outline" outcome="note-view" value="View">
+								<f:param name="id" value="#{note.id}"></f:param>
+							</h:link>
+							<h:link styleClass="button" outcome="note-edit" value="Edit" style="margin-left: 5px;">
+								<f:param name="id" value="#{note.id}"></f:param>
+							</h:link>
+						</td>
+					</tr>
+				</ui:repeat>
+			</tbody>
+		</table>
+		
+		<h:link styleClass="button" outcome="note-edit" value="Add New">
+			<f:param name="add" value="true"></f:param>
+		</h:link>		
+		
+	</ui:define>
+</ui:composition>
+
+</html>
