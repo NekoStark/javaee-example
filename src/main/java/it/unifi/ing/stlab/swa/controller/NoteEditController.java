@@ -3,14 +3,13 @@ package it.unifi.ing.stlab.swa.controller;
 import java.util.Date;
 
 import javax.enterprise.inject.Model;
-import javax.faces.context.FacesContext;
 import javax.inject.Inject;
-import javax.servlet.ServletRequest;
 import javax.transaction.Transactional;
 
 import org.apache.commons.lang3.StringUtils;
 
 import it.unifi.ing.stlab.swa.bean.UserSessionBean;
+import it.unifi.ing.stlab.swa.bean.producer.HttpParam;
 import it.unifi.ing.stlab.swa.dao.NoteDao;
 import it.unifi.ing.stlab.swa.dao.UserDao;
 import it.unifi.ing.stlab.swa.model.ModelFactory;
@@ -28,6 +27,12 @@ public class NoteEditController {
 	@Inject
 	private UserSessionBean userSession;
 	
+	@Inject @HttpParam("id")
+	private String noteId;
+	
+	@Inject @HttpParam("add")
+	private String addFlag;
+	
 	private Note note;
 	private Boolean adding;
 	
@@ -40,15 +45,12 @@ public class NoteEditController {
 	
 	@Transactional
 	public String save() {
-		noteDao.save(note);
+		noteDao.save(getNote());
 		return "home";
 	}
 	
 	public Boolean getAdding() {
 		return adding;
-	}
-	public void setAdding(Boolean adding) {
-		this.adding = adding;
 	}
 	
 	/**
@@ -57,12 +59,7 @@ public class NoteEditController {
 	 * instead of adding a super class with common code.
 	 */
 	protected void initNote() {
-		ServletRequest request = (ServletRequest)FacesContext
-				.getCurrentInstance()
-				.getExternalContext()
-				.getRequest();
-		
-		if(Boolean.valueOf( request.getParameter("add") ) ) {
+		if(Boolean.valueOf( addFlag ) ) {
 			adding = true;
 			note = ModelFactory.note();
 			note.setCreationDate( new Date() );
@@ -70,7 +67,7 @@ public class NoteEditController {
 			return;
 		}
 		
-		String noteId = request.getParameter("id");
+		adding = false;
 		if(StringUtils.isEmpty(noteId)) {
 			throw new IllegalArgumentException("id not found");
 		}

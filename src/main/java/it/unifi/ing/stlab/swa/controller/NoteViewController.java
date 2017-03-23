@@ -1,13 +1,12 @@
 package it.unifi.ing.stlab.swa.controller;
 
 import javax.enterprise.inject.Model;
-import javax.faces.context.FacesContext;
 import javax.inject.Inject;
-import javax.servlet.ServletRequest;
 
 import org.apache.commons.lang3.StringUtils;
 
 import it.unifi.ing.stlab.swa.bean.UserSessionBean;
+import it.unifi.ing.stlab.swa.bean.producer.HttpParam;
 import it.unifi.ing.stlab.swa.dao.NoteDao;
 import it.unifi.ing.stlab.swa.model.Note;
 
@@ -20,6 +19,9 @@ public class NoteViewController {
 	@Inject
 	private UserSessionBean userSession;
 	
+	@Inject @HttpParam("id")
+	private String noteId;
+	
 	private Note note;
 	
 	public Note getNote() {
@@ -30,12 +32,6 @@ public class NoteViewController {
 	}
 	
 	protected void initNote() {
-		ServletRequest request = (ServletRequest)FacesContext
-				.getCurrentInstance()
-				.getExternalContext()
-				.getRequest();
-		
-		String noteId = request.getParameter("id");
 		if(StringUtils.isEmpty(noteId)) {
 			throw new IllegalArgumentException("id not found");
 		}

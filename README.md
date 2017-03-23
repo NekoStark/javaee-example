@@ -11,7 +11,7 @@ Deploy the war with the datasource file contained in the project
 
 To add some user and notes to the database, uncomment the following annotations
 ```Java
-package it.unifi.ing.stlab.swa.bean;
+package it.unifi.ing.stlab.swa.bean.startup;
 
 @Singleton
 @Startup

@@ -1,4 +1,4 @@
-package it.unifi.ing.stlab.swa.bean;
+package it.unifi.ing.stlab.swa.bean.startup;
 
 import java.util.Date;
 

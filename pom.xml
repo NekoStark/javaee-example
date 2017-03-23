@@ -89,6 +89,10 @@
 						<version>0.7.7.201606060606</version>
 						<configuration>
 							<destFile>${jacoco.report.path}/jacoco.exec</destFile>
+							<excludes>
+								<exclude>it/unifi/ing/stlab/swa/bean/startup/*</exclude>
+								<exclude>it/unifi/ing/stlab/swa/bean/producer/*</exclude>
+							</excludes>
 						</configuration>
 						<executions>
 							<execution>
