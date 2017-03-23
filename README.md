@@ -1,6 +1,8 @@
 # javaee-example
 An example of full-stack JavaEE Application with JPA, CDI and JSF
 
+**This is just a test**, not to be taken as a template for production projects
+
 ### Installation
 
 Run on **Wildfly Server 10.1.0.Final**.

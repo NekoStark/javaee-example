@@ -13,6 +13,7 @@
 				<h:inputText id="title" value="#{noteEditController.note.title}"></h:inputText>
 				<label for="password">Content</label> 
 				<h:inputTextarea value="#{noteEditController.note.body}"></h:inputTextarea>
+				<h:link styleClass="button button-outline" outcome="home" value="Back"></h:link>
 	 			<h:commandButton styleClass="button-primary" action="#{noteEditController.save()}" value="Save">
 	 				<f:param name="id" value="#{noteEditController.note.id}"></f:param>
 	 				<f:param name="add" value="#{noteEditController.adding}"></f:param>
