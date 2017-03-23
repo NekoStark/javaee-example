@@ -1,16 +1,12 @@
 package it.unifi.ing.stlab.swa.model;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="users")
-public class User {
+public class User extends BaseEntity {
 
-	private Long id;
-	private String uuid;
 	private String email;
 	private String password;
 	
@@ -18,23 +14,7 @@ public class User {
 	}
 	
 	public User(String uuid) {
-		this.uuid = uuid;
-	}
-	
-	@Id
-	@GeneratedValue
-	public Long getId() {
-		return id;
-	}
-	void setId(Long id) {
-		this.id = id;
-	}
-	
-	public String getUuid() {
-		return uuid;
-	}
-	void setUuid(String uuid) {
-		this.uuid = uuid;
+		super(uuid);
 	}
 	
 	public String getEmail() {
