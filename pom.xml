@@ -71,6 +71,16 @@
 					<artifactId>maven-war-plugin</artifactId>
 					<version>2.3</version>
 				</plugin>
+				<plugin>
+					<groupId>org.eluder.coveralls</groupId>
+					<artifactId>coveralls-maven-plugin</artifactId>
+					<version>4.3.0</version>
+					<configuration>
+						<relativeReportDirs>
+							<relativeReportDir>/jacoco</relativeReportDir>
+						</relativeReportDirs>
+					</configuration>
+				</plugin>
 			</plugins>
 		</pluginManagement>
 	</build>
