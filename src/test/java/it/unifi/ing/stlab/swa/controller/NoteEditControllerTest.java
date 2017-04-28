@@ -121,7 +121,7 @@ public class NoteEditControllerTest {
 	public void testSave() {
 		when(noteDao.findById(noteId)).thenReturn(note);
 		
-		noteEditController.save();
+		assertEquals("home", noteEditController.save());
 		verify(noteDao, times(1)).save(note);
 	}
 

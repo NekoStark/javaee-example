@@ -102,6 +102,7 @@
 							<excludes>
 								<exclude>it/unifi/ing/stlab/swa/bean/startup/*</exclude>
 								<exclude>it/unifi/ing/stlab/swa/bean/producer/*</exclude>
+								<exclude>it/unifi/ing/stlab/swa/model/ModelFactory.*</exclude>
 							</excludes>
 						</configuration>
 						<executions>
@@ -119,9 +120,6 @@
 								<configuration>
 									<dataFile>${jacoco.report.path}/jacoco.exec</dataFile>
 									<outputDirectory>${jacoco.report.path}</outputDirectory>
-									<excludes>
-										<exclude>/src/main/java/it/unifi/ing/stlab/swa/model/ModelFactory.*</exclude>
-									</excludes>
 								</configuration>
 							</execution>
 						</executions>
