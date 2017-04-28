@@ -1,7 +1,12 @@
 # javaee-example
+[![Coverage Status](https://coveralls.io/repos/github/NekoStark/javaee-example/badge.svg?branch=master)](https://coveralls.io/github/NekoStark/javaee-example?branch=master)
+[![Build Status](https://travis-ci.org/NekoStark/javaee-example.svg?branch=master)](https://travis-ci.org/NekoStark/javaee-example)
+
 An example of full-stack JavaEE Application with JPA, CDI and JSF
 
 **This is just a test**, not to be taken as a template for production projects
+
+
 
 ### Installation
 
