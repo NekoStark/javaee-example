@@ -24,7 +24,7 @@ public class UserLoginController {
 	}
 	
 	public String login() {
-		User loggedUser = userDao.login(userData);
+		User loggedUser = userDao.login(getUserData());
 		if( loggedUser == null ) {
 			return "error?faces-redirect=true";
 		}
