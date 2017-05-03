@@ -26,7 +26,7 @@ public class UserLoginController {
 	public String login() {
 		User loggedUser = userDao.login(getUserData());
 		if( loggedUser == null ) {
-			return "error?faces-redirect=true";
+			throw new RuntimeException("User with email \"" + getUserData().getEmail() + "\" not found");
 		}
 		
 		userSession.setUserId(loggedUser.getId());
