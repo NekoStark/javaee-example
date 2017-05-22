@@ -10,9 +10,9 @@ An example of full-stack JavaEE Application with JPA, CDI and JSF
 
 ### Installation
 
-Run on **Wildfly Server 10.1.0.Final**.
+Create the war file using Maven (with **mvn clean package** or from Eclipse)
 
-Deploy the war with the datasource file contained in the project
+Run on **Wildfly Server 10.1.0.Final**.
 
 To add some user and notes to the database, uncomment the following annotations
 ```Java
